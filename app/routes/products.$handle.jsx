@@ -106,8 +106,10 @@ export default function Product() {
   /** @type {LoaderReturnData} */
   const {product, variants} = useLoaderData();
   const {selectedVariant} = product;
+  const {title, descriptionHtml} = product;
   return (
     <div className="product">
+      <h1>{title}</h1>
       <ProductImage image={selectedVariant?.image} />
       <ProductMain
         selectedVariant={selectedVariant}
@@ -149,7 +151,7 @@ function ProductMain({selectedVariant, product, variants}) {
   const {title, descriptionHtml} = product;
   return (
     <div className="product-main">
-      <h1>{title}</h1>
+      
       <ProductPrice selectedVariant={selectedVariant} />
       <br />
       <Suspense
